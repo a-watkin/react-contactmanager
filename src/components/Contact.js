@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./Contact.css";
 
 export default class Contact extends Component {
   // same as the type checking at the end of this file

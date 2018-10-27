@@ -5,7 +5,7 @@ const Header = props => {
   const { branding } = props;
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-success mb-3 py-0">
       <div className="container">
         <a href="/">{branding}</a>
         <div>
@@ -30,11 +30,6 @@ Header.defaultProps = {
 // type checking, will display warning in console if type is incorrect
 Header.propTypes = {
   branding: PropTypes.string.isRequired
-};
-
-const HeadingStyle = {
-  color: "green",
-  fontSize: "50px"
 };
 
 export default Header;

@@ -5,14 +5,12 @@ import "./Contact.css";
 export default class Contact extends Component {
   // same as the type checking at the end of this file
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired
+    contact: PropTypes.object.isRequired
   };
 
   render() {
     // destructuring to pass values
-    const { name, email, phone } = this.props;
+    const { name, email, phone } = this.props.contact;
 
     return (
       <div className="card card-body mb-3">

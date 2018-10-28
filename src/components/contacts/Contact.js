@@ -62,6 +62,6 @@ export default class Contact extends Component {
   }
 }
 
-Contact.propTypes = {
-  deleteClickHandler: PropTypes.func.isRequired
-};
+// Contact.propTypes = {
+//   deleteClickHandler: PropTypes.func.isRequired
+// };

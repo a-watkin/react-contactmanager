@@ -49,6 +49,9 @@ export default class AddContact extends Component {
       phone: "",
       errors: {}
     });
+
+    // redirect back to the home page
+    this.props.history.push("/");
   };
 
   // the brackets get the value of the name attribute of whatever calls onChange

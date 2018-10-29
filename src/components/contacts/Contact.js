@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Contact.css";
 import { Consumer } from "../../context";
@@ -56,6 +57,17 @@ export default class Contact extends Component {
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}
                 />
+                <Link to={`contact/edit/${id}`}>
+                  <i
+                    className="fas fa-pencil-alt"
+                    style={{
+                      cursor: "pointer",
+                      float: "right",
+                      color: "black",
+                      paddingRight: "1rem"
+                    }}
+                  />
+                </Link>
               </h4>
 
               {showContactInfo ? (

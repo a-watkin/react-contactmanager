@@ -3,13 +3,28 @@ import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from "axios";
 
-export default class AddContact extends Component {
+export default class EditContact extends Component {
   state = {
     name: "",
     email: "",
     phone: "",
     errors: {}
   };
+
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    const contact = res.data;
+
+    this.setState({
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone
+    });
+  }
 
   onSubmit = async (dispatch, e) => {
     //   prevents default submitting of the form
@@ -31,20 +46,6 @@ export default class AddContact extends Component {
       this.setState({ errors: { phone: "Phone is required." } });
       return;
     }
-
-    const newContact = {
-      name,
-      email,
-      phone
-    };
-
-    // newContact is the data about the new user that you're sending
-    const res = await axios.post(
-      `https://jsonplaceholder.typicode.com/users`,
-      newContact
-    );
-
-    dispatch({ type: "ADD_CONTACT", payload: res.data });
 
     // clear the form after submission
     this.setState({
@@ -70,7 +71,7 @@ export default class AddContact extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3">
-              <div className="card-header">Add Contact</div>
+              <div className="card-header">Edit Contact</div>
               <div className="card-body">
                 <form
                   className="form-group"
@@ -103,7 +104,7 @@ export default class AddContact extends Component {
                   />
                   <input
                     type="submit"
-                    value="Add Contact"
+                    value="Update Contact"
                     className="btn btn-light btn-block"
                   />
                 </form>

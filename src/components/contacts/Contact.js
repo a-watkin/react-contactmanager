@@ -20,13 +20,17 @@ export default class Contact extends Component {
     });
   };
 
-  onDeleteClick = (id, dispatch) => {
-    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(res =>
-      dispatch({
-        type: "DELETE_CONTACT",
-        payload: id
-      })
-    );
+  onDeleteClick = async (id, dispatch) => {
+    // added this because the API doesn't allow adding data
+    // so it's trying to delete something that isn't there
+    // but you still want it to actually remove the contact on the frontend
+    try {
+      // waits until this returns then does the below dispatch
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    } catch (e) {
+      console.log(e);
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+    }
   };
 
   render() {

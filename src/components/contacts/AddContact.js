@@ -11,7 +11,7 @@ export default class AddContact extends Component {
     errors: {}
   };
 
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     //   prevents default submitting of the form
     e.preventDefault();
 
@@ -39,9 +39,12 @@ export default class AddContact extends Component {
     };
 
     // newContact is the data about the new user that you're sending
-    axios
-      .post(`https://jsonplaceholder.typicode.com/users`, newContact)
-      .then(res => dispatch({ type: "ADD_CONTACT", payload: res.data }));
+    const res = await axios.post(
+      `https://jsonplaceholder.typicode.com/users`,
+      newContact
+    );
+
+    dispatch({ type: "ADD_CONTACT", payload: res.data });
 
     // clear the form after submission
     this.setState({

@@ -18,6 +18,19 @@ const reducer = (state, action) => {
         // same as pushing it onto the state
         contacts: [action.payload, ...state.contacts]
       };
+    case "UPDATE_CONTACT":
+      return {
+        ...state,
+        // if the conact is equal to the payload.id then update the contact else return
+        // do nothing
+        contacts: state.contacts.map(
+          // the id in the payload comes from the API response
+          contact =>
+            contact.id === action.payload.id
+              ? (contact = action.payload)
+              : contact
+        )
+      };
     default:
       return state;
   }

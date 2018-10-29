@@ -47,6 +47,21 @@ export default class EditContact extends Component {
       return;
     }
 
+    const updContact = {
+      name,
+      email,
+      phone
+    };
+
+    const { id } = this.props.match.params;
+
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      updContact
+    );
+    // the id in the payload comes from the API response
+    dispatch({ type: "UPDATE_CONTACT", payload: res.data });
+
     // clear the form after submission
     this.setState({
       name: "",

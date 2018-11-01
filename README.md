@@ -1,4 +1,4 @@
-# CRUD app built with React
+# CRUD contact manager app built with React
 
 Data comes from JSONPlaceholder.
 

@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/a/projects/react/contactmanager/src/components/contacts/Contact.css","main.88961237.chunk.css"],"names":[],"mappings":"AAAA,GACI,WAAa,AACb,wBAA0B,CCG7B","file":"main.88961237.chunk.css","sourcesContent":["h4 {\n    color: black;\n    text-transform: uppercase;\n}","\n\nh4 {\n    color: black;\n    text-transform: uppercase;\n}\n"]}

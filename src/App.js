@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // browser router stores the route components
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Contacts from "./components/contacts/Contacts";
 import "bootstrap/dist/css/bootstrap.min.css";

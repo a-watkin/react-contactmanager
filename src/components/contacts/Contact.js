@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./Contact.css";
 import { Consumer } from "../../context";
 import axios from "axios";
+// modular CSS
+import "./Contact.css";
 
 export default class Contact extends Component {
   state = {
@@ -30,6 +31,10 @@ export default class Contact extends Component {
       await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
     } catch (e) {
       console.log(e);
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+
+      // added this because it doesn't always seem to delete
+    } finally {
       dispatch({ type: "DELETE_CONTACT", payload: id });
     }
   };
@@ -84,6 +89,7 @@ export default class Contact extends Component {
   }
 }
 
-// Contact.propTypes = {
-//   deleteClickHandler: PropTypes.func.isRequired
-// };
+// Type checking
+Contact.propTypes = {
+  deleteClickHandler: PropTypes.func.isRequired
+};

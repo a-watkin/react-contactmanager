@@ -18,7 +18,7 @@ const TextInputGroup = ({
       <input
         type={type}
         name={name}
-        //   default classnames then those that are conditional
+        // default classnames then those that are conditional
         className={classnames("form-control form-control-lg", {
           "is-invalid": error
         })}
@@ -31,6 +31,7 @@ const TextInputGroup = ({
   );
 };
 
+// type checking
 TextInputGroup.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

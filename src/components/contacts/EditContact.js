@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Cosumer receives some data from context (global state).
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from "axios";

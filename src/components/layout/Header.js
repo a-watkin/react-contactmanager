@@ -3,12 +3,19 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Header = props => {
+
+  const style = {
+    color: 'black',
+    fontSize: '1.5em'
+  }
+
+  // strips this property from the props object
   const { branding } = props;
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-success mb-3 py-0">
       <div className="container">
-        <a href="/">{branding}</a>
+        <a style={style} href="/">{branding}</a>
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
